@@ -2,11 +2,11 @@
 **.subckt tb_impedance
 V1 VDD GND 1.8V
 V2 VSS GND 0V
-V3 VCM GND 0.9V
-R1 VCM VDIFF 1meg m=1
-V5 VB GND 0.7V
+V3 net2 GND 0.9V
+R1 net2 net3 1meg m=1
+V5 net1 GND 0.7V
 I1 VOUT GND dc 0 ac 1
-x1 VDD VOUT VDIFF VOUT VB VSS onboarding
+x1 VDD VOUT VOUT net3 net1 VSS onboarding
 **** begin user architecture code
 
 .param mc_mm_switch=0
@@ -57,7 +57,4 @@ R1 net4 net1 sky130_fd_pr__res_generic_po W=1 L=5 m=1
 .GLOBAL VDD
 .GLOBAL GND
 .GLOBAL VSS
-.GLOBAL VCM
-.GLOBAL VDIFF
-.GLOBAL VB
 .end

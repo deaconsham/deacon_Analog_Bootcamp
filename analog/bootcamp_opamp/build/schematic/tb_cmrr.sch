@@ -13,7 +13,7 @@ N -190 240 100 240 {lab=#net2}
 N -60 100 0 100 {lab=VDD}
 N 0 100 0 200 {lab=VDD}
 N 0 200 100 200 {lab=VDD}
-N -50 260 100 260 {lab=VB}
+N -50 260 100 260 {lab=#net3}
 N 390 200 400 200 {lab=VOUT}
 C {devices/vsource.sym} -60 130 0 0 {name=V1 value=1.8V savecurrent=false}
 C {devices/vsource.sym} 20 310 0 0 {name=V2 value=0V savecurrent=false}
@@ -32,9 +32,7 @@ value=1M
 footprint=1206
 device=resistor
 m=1}
-C {devices/vdd.sym} -300 220 0 0 {name=l5 lab=VCM}
 C {devices/gnd.sym} -300 280 0 0 {name=l6 lab=GND}
-C {devices/vdd.sym} -50 260 3 0 {name=l8 lab=VB}
 C {devices/vsource.sym} -50 290 0 0 {name=V5 value=0.7V savecurrent=false}
 C {devices/gnd.sym} -50 320 0 0 {name=l9 lab=GND}
 C {devices/lab_pin.sym} 400 200 2 0 {name=p1 sig_type=std_logic lab=VOUT}

@@ -5,18 +5,17 @@ V {}
 S {}
 E {}
 N 20 280 100 280 {lab=VSS}
-N -200 220 -150 220 {lab=VCM}
-N -90 220 100 220 {lab=VDIFF}
-N -250 220 -250 240 {lab=VCM}
-N 80 150 80 240 {lab=#net1}
-N 20 150 20 220 {lab=VDIFF}
-N -300 220 -200 220 {lab=VCM}
-N -190 240 100 240 {lab=#net1}
+N -200 220 -150 220 {lab=#net1}
+N -90 220 100 220 {lab=#net2}
+N -250 220 -250 240 {lab=#net1}
+N 80 150 80 240 {lab=#net3}
+N 20 150 20 220 {lab=#net2}
+N -300 220 -200 220 {lab=#net1}
+N -190 240 100 240 {lab=#net3}
 N -60 100 0 100 {lab=VDD}
 N 0 100 0 200 {lab=VDD}
 N 0 200 100 200 {lab=VDD}
-N -50 260 100 260 {lab=VB}
-N 20 130 20 150 {lab=VDIFF}
+N -50 260 100 260 {lab=#net4}
 N 390 200 400 200 {lab=VOUT}
 C {devices/vsource.sym} -60 130 0 0 {name=V1 value=1.8V savecurrent=false}
 C {devices/vsource.sym} 20 310 0 0 {name=V2 value=0V savecurrent=false}
@@ -36,10 +35,7 @@ value=1M
 footprint=1206
 device=resistor
 m=1}
-C {devices/vdd.sym} -300 220 0 0 {name=l5 lab=VCM}
 C {devices/gnd.sym} -300 280 0 0 {name=l6 lab=GND}
-C {devices/vdd.sym} 20 130 0 0 {name=l7 lab=VDIFF}
-C {devices/vdd.sym} -50 260 3 0 {name=l8 lab=VB}
 C {devices/vsource.sym} -50 290 0 0 {name=V5 value=0.7V savecurrent=false}
 C {devices/gnd.sym} -50 320 0 0 {name=l9 lab=GND}
 C {devices/lab_pin.sym} 400 200 2 0 {name=p1 sig_type=std_logic lab=VOUT}
@@ -50,6 +46,7 @@ ac dec 50 1 1G
 meas ac max_gain MAX vdb(vout)
 meas ac ugf WHEN vdb(vout)=0
 meas ac phase_at_ugf FIND vp(vout) WHEN vdb(vout)=0
+meas ac f3db WHEN vdb(vout)=71.55 FALL=1
 wrdata ac_plot.txt vdb(vout)
 .endc"}
 C {onboarding.sym} 250 240 0 0 {name=x1}

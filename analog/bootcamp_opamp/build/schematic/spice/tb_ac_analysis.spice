@@ -2,12 +2,12 @@
 **.subckt tb_ac_analysis
 V1 VDD GND 1.8V
 V2 VSS GND 0V
-V3 VCM GND 0.9V
-V4 VDIFF net1 dc 0 ac 1
-R1 VCM VDIFF 1M m=1
-R2 VCM net1 1M m=1
-V5 VB GND 0.7V
-x1 VDD VOUT VDIFF net1 VB VSS onboarding
+V3 net1 GND 0.9V
+V4 net2 net3 dc 0 ac 1
+R1 net1 net2 1M m=1
+R2 net1 net3 1M m=1
+V5 net4 GND 0.7V
+x1 VDD VOUT net2 net3 net4 VSS onboarding
 **** begin user architecture code
 
 .param mc_mm_switch=0
@@ -24,6 +24,7 @@ ac dec 50 1 1G
 meas ac max_gain MAX vdb(vout)
 meas ac ugf WHEN vdb(vout)=0
 meas ac phase_at_ugf FIND vp(vout) WHEN vdb(vout)=0
+meas ac f3db WHEN vdb(vout)=71.55 FALL=1
 wrdata ac_plot.txt vdb(vout)
 .endc
 
@@ -61,7 +62,4 @@ R1 net4 net1 sky130_fd_pr__res_generic_po W=1 L=5 m=1
 .GLOBAL VDD
 .GLOBAL GND
 .GLOBAL VSS
-.GLOBAL VCM
-.GLOBAL VDIFF
-.GLOBAL VB
 .end

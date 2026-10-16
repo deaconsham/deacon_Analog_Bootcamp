@@ -2,11 +2,11 @@
 **.subckt tb_cmrr
 V1 VDD GND 1.8V
 V2 VSS GND 0V
-V3 VCM GND dc 0.9 ac 1
-R1 VCM net1 1M m=1
-R2 VCM net2 1M m=1
-V5 VB GND 0.7V
-x1 VDD VOUT net1 net2 VB VSS onboarding
+V3 net1 GND dc 0.9 ac 1
+R1 net1 net2 1M m=1
+R2 net1 net3 1M m=1
+V5 net4 GND 0.7V
+x1 VDD VOUT net2 net3 net4 VSS onboarding
 **** begin user architecture code
 
 .param mc_mm_switch=0
@@ -58,6 +58,4 @@ R1 net4 net1 sky130_fd_pr__res_generic_po W=1 L=5 m=1
 .GLOBAL VDD
 .GLOBAL GND
 .GLOBAL VSS
-.GLOBAL VCM
-.GLOBAL VB
 .end
