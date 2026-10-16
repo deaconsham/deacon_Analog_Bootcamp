@@ -32,7 +32,7 @@ bun run dev
 - Input Impedance:      1 MΩ  (Target: ≥1 MΩ)
 - Output Impedance:     0.57 kΩ  (Target: ≤1 kΩ)
 - Power Consumption:    0.21 mW  (Target: ≤5 mW)
-- 3dB Bandwidth:        0.018 MHz
+- 3dB Bandwidth:        0.00026289 MHz
 
 - GBW Product:          1.40 MHz
 
